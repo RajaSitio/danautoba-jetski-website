@@ -1,0 +1,4 @@
+
+User-agent: *
+Allow: /
+Sitemap: [Jika Anda punya sitemap, URL-nya di sini, contoh: https://tobajet.example.com/sitemap.xml]

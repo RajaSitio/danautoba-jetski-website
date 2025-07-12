@@ -1,0 +1,24 @@
+{
+  "name": "Danau Toba Jetski",
+  "short_name": "DT Jetski",
+  "description": "Sewa jetski Danau Toba dengan Danau Toba Jetski! Temukan paket terbaik, lihat galeri, dan dapatkan rekomendasi cerdas.",
+  "icons": [
+    {
+      "src": "https://placehold.co/192x192.png?text=Icon192",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://placehold.co/512x512.png?text=Icon512",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0C0F",
+  "theme_color": "#FFD700",
+  "scope": "/"
+}

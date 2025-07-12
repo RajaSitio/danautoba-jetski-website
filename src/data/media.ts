@@ -1,0 +1,296 @@
+
+import type { TranslationKey } from '@/lib/locales';
+
+export type MediaItem = {
+  id: string;
+  src: string; // URL for the thumbnail image
+  altKey: string; // Key for alt text translation
+  dataAiHint: string; // Hint for AI image generation
+  type: 'video' | 'photo';
+  videoUrl?: string; // Optional: URL to the actual video if different from src or for direct linking
+};
+
+// Sample video data
+export const videoItems: MediaItem[] = [
+  { // Index 0 (Posisi 1)
+    id: 'video1',
+    src: 'https://archive.org/download/vlcsnap-2025-05-27-01h08m30s031_202506/vlcsnap-2025-05-27-01h08m30s031.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'batu gantung tour',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/trip-to-batu-gantung_202506/Trip%20to%20Batu%20Gantung.mp4',
+  },
+  { // Index 1 (Posisi 2)
+    id: 'video8',
+    src: 'https://archive.org/download/lets-start-with-jetski-danau-toba-samosir_202506/vlcsnap-2025-05-24-19h39m41s982.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski start',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/lets-start-with-jetski-danau-toba-samosir_202506/Let%E2%80%99s%20start%20with%20jetski%20danau%20toba%20samosir.mp4',
+  },
+  { // Index 2 (Posisi 3)
+    id: 'video2',
+    src: 'https://archive.org/download/vlcsnap-2025-05-27-01h08m30s031_202506/vlcsnap-2025-05-27-01h07m25s043.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski action',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/trip-to-batu-gantung_202506/LAPOR%20Misi%20melenyapkan%20kekasih%20GAGAL.mp4',
+  },
+  { // Index 3 (Posisi 4)
+    id: 'video5',
+    src: 'https://archive.org/download/supernatural-mutiararyskaa-tuktukjetski-laketoba-samosir-watersports-sewajetski-_202506/thumbnail5.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski model',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/supernatural-mutiararyskaa-tuktukjetski-laketoba-samosir-watersports-sewajetski-_202506/Supernatural%20%40mutiararyskaa%20%23tuktukjetski%20%23laketoba%20%23samosir%20%23watersports%20%23sewajetski%20%23samosirindah%20%23jetski%20%23seadoolife.mp4',
+  },
+  { // Index 4 (Posisi 5)
+    id: 'video6',
+    src: 'https://archive.org/download/explore-air-terjun-situmurun-bersama-tuktukjetski-thank-you-vizalist_202506/vlcsnap-2025-06-10-08h34m06s494.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'waterfall tour',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/explore-air-terjun-situmurun-bersama-tuktukjetski-thank-you-vizalist_202506/Explore%20Air%20Terjun%20Situmurun%20bersama%20%40tuktukjetski%20%20%20Thank%20you%20%40vizalist.mp4',
+  },
+  { // Index 5 (Posisi 6) - SWAPPED with Index 14
+    id: 'video15',
+    src: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Goo.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski action',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Goo.mp4',
+  },
+  { // Index 6 (Posisi 7)
+    id: 'video7',
+    src: 'https://archive.org/download/booommm.-jetski-tuktukjetski-laketoba-samosir-watersports-watersports-sewajetski_202506/vlcsnap-2025-06-10-08h25m53s286.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski speed',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/booommm.-jetski-tuktukjetski-laketoba-samosir-watersports-watersports-sewajetski_202506/Booommm.%20%23jetski%20%23tuktukjetski%20%23laketoba%20%23samosir%20%23watersports%20%23watersports%20%23sewajetski%20%23.mp4',
+  },
+  { // Index 7 (Posisi 8)
+    id: 'video3',
+    src: 'https://archive.org/download/vlcsnap-2025-05-27-01h08m30s031_202506/vlcsnap-2025-05-27-01h06m58s768.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'water sport',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/trip-to-batu-gantung_202506/Kira%20kira%20abang%20ini%20cocoknya%20marga%20apa.mp4',
+  },
+  { // Index 8 (Posisi 9)
+    id: 'video9',
+    src: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Aku%20terjatuh%20dan%20tak%20bisa%20bangkit%20lagi%20%20%20%40delfifh%20%23jetski%20%23tuktukjetski%20%23laketoba%20%23samosir%20%23seadoo%20%23watersports%20%23sewajetski%20%23samosirindah%20%23jetski.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski action',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Aku%20terjatuh%20dan%20tak%20bisa%20bangkit%20lagi%20%20%20%40delfifh%20%23jetski%20%23tuktukjetski%20%23laketoba%20%23samosir%20%23seadoo%20%23watersports%20%23sewajetski%20%23samosirindah%20%23jetski.mp4',
+  },
+  { // Index 9 (Posisi 10)
+    id: 'video10',
+    src: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Angel%20%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%20jetski%20%23laketoba%20%23tuktukjetski%20%23seadoo%20%23sewajetski%20%23watersports%20%23samosirindah%20%23samosirindah%20%23samosir%20%23seadooindonesia%20%23jetski%20%23seadoolife.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski action',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Angel%20%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%20jetski%20%23laketoba%20%23tuktukjetski%20%23seadoo%20%23sewajetski%20%23watersports%20%23samosirindah%20%23samosirindah%20%23samosir%20%23seadooindonesia%20%23jetski%20%23seadoolife.mp4',
+  },
+  { // Index 10 (Posisi 11)
+    id: 'video11',
+    src: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Ayo%20ke%20pulau%20hole.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski action',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Ayo%20ke%20pulau%20hole.mp4',
+  },
+  { // Index 11 (Posisi 12)
+    id: 'video12',
+    src: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Berlibur%20di%20danau%20Toba%20dan%20jetski.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski action',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Berlibur%20di%20danau%20Toba%20dan%20jetski.mp4',
+  },
+  { // Index 12 (Posisi 13)
+    id: 'video13',
+    src: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Dance%20and%20Jetski%23tuktukjetski%20%23sewajetski%20%23watersports%20%23samosirindah%20%23samosir%20%23jetski.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski action',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Dance%20and%20Jetski%23tuktukjetski%20%23sewajetski%20%23watersports%20%23samosirindah%20%23samosir%20%23jetski.mp4',
+  },
+  { // Index 13 (Posisi 14)
+    id: 'video14',
+    src: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Dont%20stop%20me%20now%20%21%21%21%20%40fiolinelie_.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski action',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Dont%20stop%20me%20now%20%21%21%21%20%40fiolinelie_.mp4',
+  },
+  { // Index 14 (Posisi 15) - SWAPPED with Index 5
+    id: 'video4',
+    src: 'https://archive.org/download/higher-love-tuktukjetski-laketoba-seadoo-samosir-sewajetski-watersports-waterspo/higher%20love.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski lake',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/higher-love-tuktukjetski-laketoba-seadoo-samosir-sewajetski-watersports-waterspo/Higher%20love%20%E2%80%98%20%23tuktukjetski%20%23laketoba%20%23seadoo%20%23samosir%20%23sewajetski%20%23watersports%20%23watersports%20%23samosirindah%20%23jetski%20%23seadooindonesia%20%23seadoolife.mp4',
+  },
+  { // Index 15 (Posisi 16)
+    id: 'video16',
+    src: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Happy%20Birthday%20kakak%20%40maje.jennifer%20%20Wish%20You%20all%20the%20Best%20%2C%20Terimakasih%20sudah%20bermain%20jetski%20di%20Tuktuk%20Jetski%20%23tuktukjetski%20%23laketoba%20%23sewajetski%20%23samosir%20%23seadoo%20%23watersports%20%23samosirindah%20%23jetski%20%23seadoo.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski action',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Happy%20Birthday%20kakak%20%40maje.jennifer%20%20Wish%20You%20all%20the%20Best%20%2C%20Terimakasih%20sudah%20bermain%20jetski%20di%20Tuktuk%20Jetski%20%23tuktukjetski%20%23laketoba%20%23sewajetski%20%23samosir%20%23seadoo%20%23watersports%20%23samosirindah%20%23jetski%20%23seadoo.mp4',
+  },
+  { // Index 16 (Posisi 17)
+    id: 'video17',
+    src: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Jetski%20and%20the%20best%20view.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski action',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Jetski%20and%20the%20best%20view.mp4',
+  },
+  { // Index 17 (Posisi 18)
+    id: 'video18',
+    src: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Jetski%20skuyyyyy%20%40_kayyll.aa%20%40kayre.nn%20%23sewajetski%20%23laketoba%20%23tuktukjetski%20%23seadoo%20%23watersports%20%23samosirindah%20%23samosir%20%23jetski.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski action',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Jetski%20skuyyyyy%20%40_kayyll.aa%20%40kayre.nn%20%23sewajetski%20%23laketoba%20%23tuktukjetski%20%23seadoo%20%23watersports%20%23samosirindah%20%23samosir%20%23jetski.mp4',
+  },
+  { // Index 18 (Posisi 19)
+    id: 'video19',
+    src: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Jetski%20with%20%40fairtiqa.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski action',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Jetski%20with%20%40fairtiqa.mp4',
+  },
+  { // Index 19 (Posisi 20)
+    id: 'video20',
+    src: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Kalau%20memang%20cocok%20bisa%20datang%20ke%20Juma%40jumacottages%20%23tuktukjetski%20%23laketoba%20%23seadoo%20%23sewajetski%20%23watersports%20%23samosirindah%20%23seadooindonesia%20%23jetski%20%23rentaljetskituktuk%20%23sewajetskituktuk.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski action',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Kalau%20memang%20cocok%20bisa%20datang%20ke%20Juma%40jumacottages%20%23tuktukjetski%20%23laketoba%20%23seadoo%20%23sewajetski%20%23watersports%20%23samosirindah%20%23seadooindonesia%20%23jetski%20%23rentaljetskituktuk%20%23sewajetskituktuk.mp4',
+  },
+  { // Index 20 (Posisi 21)
+    id: 'video21',
+    src: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Shining%20Shimmering%20Splendid%20%20%23tuktukjetski%20%23laketoba%20%23samosir%20%23seadoo%20%23watersports%20%23sewajetski%20%23samosirindah%20%23jetski%20%23seadooindonesia%20%23rentaljetskituktuk%20%23sewajetskituktuk%20%23promojetski%20%23tuktukjetski.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski action',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Shining%20Shimmering%20Splendid%20%20%23tuktukjetski%20%23laketoba%20%23samosir%20%23seadoo%20%23watersports%20%23sewajetski%20%23samosirindah%20%23jetski%20%23seadooindonesia%20%23rentaljetskituktuk%20%23sewajetskituktuk%20%23promojetski%20%23tuktukjetski.mp4',
+  },
+  { // Index 22 (Posisi 23)
+    id: 'video23',
+    src: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/The%20sunset%20is%20amazing%20isn%E2%80%99t.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski action',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/The%20sunset%20is%20amazing%20isn%E2%80%99t.mp4',
+  },
+  { // Index 23 (Posisi 24)
+    id: 'video24',
+    src: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Trip%20Air%20Terjun%20Situmurun%20bersama%20keluarga%20besar%20%20Jangan%20khawatir%20jika%20naik%20Jetski%20ke%20air%20terjun%20Situmurun%20bersama%20keluarga%2C%20anda%20dapat%20menambahkan%20Speedboat%20untuk%20membawa%20keluarga%20anda%20mulai%20dari%20anak%20keci.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski action',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Trip%20Air%20Terjun%20Situmurun%20bersama%20keluarga%20besar%20%20Jangan%20khawatir%20jika%20naik%20Jetski%20ke%20air%20terjun%20Situmurun%20bersama%20keluarga%2C%20anda%20dapat%20menambahkan%20Speedboat%20untuk%20membawa%20keluarga%20anda%20mulai%20dari%20anak%20keci.mp4',
+  },
+  { // Index 24 (Posisi 25)
+    id: 'video25',
+    src: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Tuktuk%20Jetski%20kedatangan%20bg%20%40erick_otank68%20nih%2C%20Giliran%20kamu%20kapanAyo%20rencanakan%20liburan%20anda%20ke%20Tuktuk%20Siadong%20dan%20bermain%20Jetski%20bersama%20%40tuktukjetski%20%23seadoo%20%23laketoba%20%23watersports%20%23sewajetski%20%23samosirin.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski action',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/Tuktuk%20Jetski%20kedatangan%20bg%20%40erick_otank68%20nih%2C%20Giliran%20kamu%20kapanAyo%20rencanakan%20liburan%20anda%20ke%20Tuktuk%20Siadong%20dan%20bermain%20Jetski%20bersama%20%40tuktukjetski%20%23seadoo%20%23laketoba%20%23watersports%20%23sewajetski%20%23samosirin.mp4',
+  },
+  { // Index 25 (Posisi 26)
+    id: 'video26',
+    src: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/White%20tiger.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski action',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/White%20tiger.mp4',
+  },
+  { // Index 26 (Posisi 27)
+    id: 'video27',
+    src: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/in%20my%20own%20line%2C%20no%20traffic..png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski action',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/in%20my%20own%20line%2C%20no%20traffic..mp4',
+  },
+  { // Index 27 (Posisi 28)
+    id: 'video28',
+    src: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/jetskii%20lagiii%20%20%23jetski%20%23samosircottage%20%23seadoo%20%23danautoba.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski action',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/jetskii%20lagiii%20%20%23jetski%20%23samosircottage%20%23seadoo%20%23danautoba.mp4',
+  },
+  { // Index 28 (Posisi 29)
+    id: 'video29',
+    src: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/merasa%20paling%20ganteng.png',
+    altKey: 'alt_jetski_video_thumbnail',
+    dataAiHint: 'jetski action',
+    type: 'video',
+    videoUrl: 'https://archive.org/download/trip-air-terjun-situmurun-bersama-keluarga-besar-jangan-khawatir-jika-naik-jetsk/merasa%20paling%20ganteng.mp4',
+  },
+];
+
+// Sample photo data
+export const photoItems: MediaItem[] = [
+  {
+    id: 'photo1',
+    src: 'https://archive.org/download/i-want-to-be-forever-young-in-frame-racheltanjung-jetski-jetskilife-tuktukjetski-samosir-danautoba-1/she%27s%20the%20one%20that%20can%27t%20be%20driven%2Cbut%20driving%20others%20crazy.jpg',
+    altKey: 'alt_jetski_photo_thumbnail',
+    dataAiHint: 'jetski portrait',
+    type: 'photo',
+  },
+  {
+    id: 'photo2',
+    src: 'https://archive.org/download/i-want-to-be-forever-young-in-frame-racheltanjung-jetski-jetskilife-tuktukjetski-samosir-danautoba-1/Love%20story.jpg',
+    altKey: 'alt_jetski_photo_thumbnail',
+    dataAiHint: 'lake couple',
+    type: 'photo',
+  },
+  {
+    id: 'photo3',
+    src: 'https://archive.org/download/i-want-to-be-forever-young-in-frame-racheltanjung-jetski-jetskilife-tuktukjetski-samosir-danautoba-1/Love%20of%20my%20life%20In%20frame%20-%20%40oliviaaruth%20%23jetski%20%23tuktukjetski%20%23tuktuksiadong%20%23samosir%20%23danautoba%20%23danautobaview.jpg',
+    altKey: 'alt_jetski_photo_thumbnail',
+    dataAiHint: 'jetski selfie',
+    type: 'photo',
+  },
+  {
+    id: 'photo4',
+    src: 'https://archive.org/download/i-want-to-be-forever-young-in-frame-racheltanjung-jetski-jetskilife-tuktukjetski-samosir-danautoba-1/Life%20is%20wonderful%20%23jetski%20%23tuktuksiadong%20%23tuktukjetski%20%23samosir%20%23samosirisland.jpg',
+    altKey: 'alt_jetski_photo_thumbnail',
+    dataAiHint: 'jetski lifestyle',
+    type: 'photo',
+  },
+  {
+    id: 'photo5',
+    src: 'https://archive.org/download/i-want-to-be-forever-young-in-frame-racheltanjung-jetski-jetskilife-tuktukjetski-samosir-danautoba-1/I%20want%20to%20be%20forever%20young%20%20%20in%20frame%20-%20%40racheltanjung_%20%23jetski%20%23jetskilife%20%23tuktukjetski%20%23samosir%20%23danautoba.jpg',
+    altKey: 'alt_jetski_photo_thumbnail',
+    dataAiHint: 'jetski model',
+    type: 'photo',
+  },
+  {
+    id: 'photo7',
+    src: 'https://archive.org/download/i-want-to-be-forever-young-in-frame-racheltanjung-jetski-jetskilife-tuktukjetski-samosir-danautoba-1/I%20love%20me.jpg',
+    altKey: 'alt_jetski_photo_thumbnail',
+    dataAiHint: 'jetski smile',
+    type: 'photo',
+  },
+  {
+    id: 'photo8',
+    src: 'https://archive.org/download/i-want-to-be-forever-young-in-frame-racheltanjung-jetski-jetskilife-tuktukjetski-samosir-danautoba-1/Amazing%20Lake%20Toba.jpg',
+    altKey: 'alt_jetski_photo_thumbnail',
+    dataAiHint: 'toba view',
+    type: 'photo',
+  },
+];
+
+    
+
+    
