@@ -21,6 +21,16 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // The genkit API route is not supported in 'output: export' mode.
+  // We exclude it from the page build process to prevent errors.
+  webpack: (config, { isServer, nextRuntime }) => {
+    if (isServer && nextRuntime === "nodejs") {
+      config.externals.push({
+        './app/api/genkit/[[...path]]/route': 'commonjs ./app/api/genkit/[[...path]]/route',
+      });
+    }
+    return config;
+  },
 };
 
 export default nextConfig;
