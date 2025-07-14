@@ -29,7 +29,7 @@ export async function generateMetadata(
 
   const title = getTranslation('id', pkg.titleKey);
   const description = getTranslation('id', pkg.descriptionKey);
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://danautobajetski.com';
+  const siteUrl = 'https://danautobajetski.com';
 
   return {
     title: `${title} | ${getTranslation('id', 'appName')}`,

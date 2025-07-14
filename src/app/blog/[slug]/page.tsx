@@ -28,7 +28,7 @@ export async function generateMetadata(
 
   const title = getTranslation('id', article.titleKey);
   const description = getTranslation('id', article.summaryKey);
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://danautobajetski.com';
+  const siteUrl = 'https://danautobajetski.com';
 
   return {
     title: `${title} | Danau Toba Jetski Blog`,

@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { getTranslation } from '@/lib/locales';
 import { articleData } from '@/data/articles';
@@ -6,7 +7,7 @@ import { BlogClientContent } from '@/components/sections/blog-client-content';
 export async function generateMetadata(): Promise<Metadata> {
   const title = getTranslation('id', 'blog_meta_title');
   const description = getTranslation('id', 'blog_meta_description');
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://danautobajetski.com';
+  const siteUrl = 'https://danautobajetski.com';
 
   return {
     title: title,

@@ -11,7 +11,7 @@ import { Exo_2 } from 'next/font/google';
 
 const exo2 = Exo_2({ subsets: ['latin'], variable: '--font-exo2' });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://danautobajetski.com';
+const siteUrl = 'https://danautobajetski.com';
 const logoUrl = "https://archive.org/download/logo-baru-jetski-danau-toba-samosir/logo%20baru%20jetski%20danau%20toba%20samosir.png";
 
 export const metadata: Metadata = {
