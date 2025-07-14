@@ -1,3 +1,4 @@
+
 import type { TranslationKey } from '@/lib/locales';
 
 export type LocationDetail = {
@@ -18,14 +19,14 @@ export const locationDetails: LocationDetail[] = [
     nameKey: 'location_tio_beach_name',
     addressKey: 'location_tio_beach_address',
     phoneKey: 'location_tio_beach_phone', // Added phoneKey for Tio Beach
-    coordinates: { lat: 2.6600891097392085, lng: 98.85417671101375 },
+    coordinates: { lat: 2.660089, lng: 98.854177 },
   },
   {
     id: 'juma-cottage',
     nameKey: 'location_juma_cottage_name',
     addressKey: 'location_juma_cottage_address',
     phoneKey: 'location_juma_cottage_phone', // Added phoneKey for Juma Cottage
-    coordinates: { lat: 2.671542, lng: 98.865743 },
+    coordinates: { lat: 2.673117, lng: 98.850576 },
   },
   {
     id: 'batu-gantung',

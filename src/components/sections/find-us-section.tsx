@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useTranslation } from '@/hooks/use-language';
@@ -30,12 +31,10 @@ export function FindUsSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {operationalLocations.map((location) => {
               let mapSrc = '';
-              if (location.id === 'tio-beach') {
-                mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=98.849177,2.655589,98.859177,2.665589&layer=mapnik&marker=2.660089,98.854177`;
-              } else if (location.id === 'juma-cottage') {
-                mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=98.860743,2.666542,98.870743,2.676542&layer=mapnik&marker=2.671542,98.865743`;
-              }
-
+              const { lat, lng } = location.coordinates;
+              const bbox = `${lng - 0.01},${lat - 0.005},${lng + 0.01},${lat + 0.005}`;
+              mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat},${lng}`;
+              
               return (
                 <LocationCard
                   key={location.id}
@@ -43,7 +42,7 @@ export function FindUsSection() {
                 >
                   {mapSrc && (
                      <div className="relative w-full aspect-video overflow-hidden rounded-md shadow-inner mt-2 mb-4">
-                        <div className="absolute top-2 left-2 flex items-center bg-background/80 px-2 py-1 rounded-md shadow">
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[250%] flex items-center bg-background/80 px-2 py-1 rounded-md shadow z-10">
                            <MapPin className="mr-2 h-4 w-4 text-destructive flex-shrink-0" />
                            <span className="text-xs font-semibold">{t(location.nameKey)}</span>
                         </div>
