@@ -1,7 +1,5 @@
-
 "use client";
 
-import type { ReactNode } from 'react';
 import { useTranslation } from '@/hooks/use-language';
 import { locationDetails } from '@/data/locations';
 import { LocationCard } from '@/components/common/location-card';
@@ -9,10 +7,6 @@ import { MapPin } from 'lucide-react';
 
 export function FindUsSection() {
   const { t } = useTranslation();
-  const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-  
-  // A robust check to see if the API key is provided and not a placeholder.
-  const apiKeyIsAvailable = GOOGLE_MAPS_API_KEY && !GOOGLE_MAPS_API_KEY.includes('MASUKKAN_API_KEY');
 
   // Filter to only show operational locations
   const operationalLocations = locationDetails.filter(
@@ -32,48 +26,45 @@ export function FindUsSection() {
           </p>
         </div>
 
-        {apiKeyIsAvailable ? (
-          <>
-            {operationalLocations.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                {operationalLocations.map((location) => {
-                  const locationName = t(location.nameKey);
-                  const locationAddress = t(location.addressKey);
-                  
-                  const individualMapQuery = `${locationName}, ${locationAddress}`;
-                  const individualMapSrc = `https://www.google.com/maps/embed/v1/place?key=${GOOGLE_MAPS_API_KEY}&q=${encodeURIComponent(individualMapQuery)}`;
+        {operationalLocations.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {operationalLocations.map((location) => {
+              let mapSrc = '';
+              if (location.id === 'tio-beach') {
+                mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=98.849177,2.655589,98.859177,2.665589&layer=mapnik&marker=2.660089,98.854177`;
+              } else if (location.id === 'juma-cottage') {
+                mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=98.860743,2.666542,98.870743,2.676542&layer=mapnik&marker=2.671542,98.865743`;
+              }
 
-                  return (
-                    <LocationCard
-                      key={location.id}
-                      location={location}
-                    >
-                      <iframe
-                        src={individualMapSrc}
-                        width="100%"
-                        height="250"
-                        style={{ border:0 }}
-                        allowFullScreen={false}
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        className="rounded-md shadow-md"
-                        title={`${locationName} Map`}
-                      ></iframe>
-                    </LocationCard>
-                  );
-                })}
-              </div>
-            ) : (
-              <p className="text-center text-muted-foreground">
-                {t('findUsSectionNoLocations', {defaultValue: 'Location information will be available soon.'})}
-              </p>
-            )}
-          </>
-        ) : (
-          <div className="text-center p-8 bg-destructive/10 border border-destructive text-destructive rounded-lg shadow-lg">
-            <h3 className="font-semibold text-xl mb-2">{t('maps_api_key_missing_title')}</h3>
-            <p className="text-base">{t('maps_api_key_missing_message')}</p>
+              return (
+                <LocationCard
+                  key={location.id}
+                  location={location}
+                >
+                  {mapSrc && (
+                     <div className="relative w-full aspect-video overflow-hidden rounded-md shadow-inner mt-2 mb-4">
+                        <div className="absolute top-2 left-2 flex items-center bg-background/80 px-2 py-1 rounded-md shadow">
+                           <MapPin className="mr-2 h-4 w-4 text-destructive flex-shrink-0" />
+                           <span className="text-xs font-semibold">{t(location.nameKey)}</span>
+                        </div>
+                        <iframe
+                          width="100%"
+                          height="100%"
+                          loading="lazy"
+                          src={mapSrc}
+                          className="absolute top-0 left-0 w-full h-full border-0"
+                          title={`Map of ${t(location.nameKey)}`}
+                        ></iframe>
+                      </div>
+                  )}
+                </LocationCard>
+              );
+            })}
           </div>
+        ) : (
+          <p className="text-center text-muted-foreground">
+            {t('findUsSectionNoLocations', {defaultValue: 'Location information will be available soon.'})}
+          </p>
         )}
       </div>
     </section>

@@ -1,4 +1,3 @@
-
 import type { TranslationKey } from '@/lib/locales';
 
 export type LocationDetail = {
@@ -43,5 +42,3 @@ export const locationDetails: LocationDetail[] = [
     coordinates: { lat: 2.4568, lng: 98.9242 },
   },
 ];
-
-    
