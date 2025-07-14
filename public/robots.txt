@@ -1,4 +1,5 @@
-
+# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
-Sitemap: [Jika Anda punya sitemap, URL-nya di sini, contoh: https://tobajet.example.com/sitemap.xml]
+
+Sitemap: https://danautobajetski.com/sitemap.xml
