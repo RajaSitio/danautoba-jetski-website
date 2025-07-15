@@ -119,7 +119,7 @@ const organizationSchema = {
     "https://web.facebook.com/profile.php?id=61576861521610&locale=id_ID",
     "https://www.instagram.com/tuktukjetski?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
     "https://www.tiktok.com/@tuktukjetskiofficial2",
-    "https://www.youtube.com/channel/UC05XMeIK8hpQ_2nQsC-avfg"
+    "https://www.youtube.com/@Danautobajetski-samosir"
   ],
   "contactPoint": {
     "@type": "ContactPoint",

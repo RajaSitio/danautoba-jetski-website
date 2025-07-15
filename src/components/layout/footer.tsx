@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Facebook, Instagram, Youtube, Phone } from 'lucide-react';
@@ -64,7 +65,7 @@ export function Footer() {
               <Link href="https://www.tiktok.com/@tuktukjetskiofficial2" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="text-muted-foreground hover:text-primary transition-colors">
                 <TikTokIcon />
               </Link>
-              <Link href="https://www.youtube.com/channel/UC05XMeIK8hpQ_2nQsC-avfg" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="text-muted-foreground hover:text-primary transition-colors">
+              <Link href="https://www.youtube.com/@Danautobajetski-samosir" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="text-muted-foreground hover:text-primary transition-colors">
                 <Youtube className="h-6 w-6" />
               </Link>
             </div>
