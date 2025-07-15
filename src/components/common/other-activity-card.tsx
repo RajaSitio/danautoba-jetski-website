@@ -15,6 +15,7 @@ interface OtherActivityCardProps {
 export function OtherActivityCard({ activityInfo }: OtherActivityCardProps) {
   const { t } = useTranslation();
   const activityTitle = t(activityInfo.titleKey);
+  const activityDescription = t(activityInfo.descriptionKey);
 
   const handleContactUs = () => {
     const whatsAppNumber = "62895611016833"; // Main contact number
@@ -41,9 +42,10 @@ export function OtherActivityCard({ activityInfo }: OtherActivityCardProps) {
         </CardTitle>
       </CardHeader>
       <CardContent className="p-4 pt-0 flex-grow">
-        <p className="text-sm text-foreground/80 mb-2 line-clamp-3">
-          {t(activityInfo.descriptionKey)}
-        </p>
+        <div 
+            className="text-sm text-foreground/80 mb-2 prose prose-sm dark:prose-invert max-w-none prose-p:my-2"
+            dangerouslySetInnerHTML={{ __html: activityDescription }}
+        />
         <div className="flex items-center text-xs text-muted-foreground mb-4">
             <Waves className="h-4 w-4 mr-2 text-primary/80" />
             <span>{t('include_hotel_beach_pickup_short')}</span>
@@ -52,6 +54,7 @@ export function OtherActivityCard({ activityInfo }: OtherActivityCardProps) {
           <span className="font-bold text-primary">{t(activityInfo.priceKey)}</span>
           <span className="text-muted-foreground text-base">{t(activityInfo.durationKey)}</span>
         </div>
+         <p className="text-xs text-muted-foreground mt-1">{t(activityInfo.priceInfoKey)}</p>
       </CardContent>
       <CardFooter className="p-4 pt-2">
         <Button className="w-full btn-gold" onClick={handleContactUs}>
