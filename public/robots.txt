@@ -1,5 +1,6 @@
-# https://www.robotstxt.org/robotstxt.html
+# Allow all crawlers complete access
 User-agent: *
 Allow: /
 
+# Point crawlers to the sitemap
 Sitemap: https://danautobajetski.com/sitemap.xml
