@@ -3,7 +3,12 @@ import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
   output: 'export',
-  trailingSlash: true,
+  // Vercel's static file handling is optimized for non-trailing slash URLs.
+  // Disabling this and letting Vercel handle redirects is the recommended approach.
+  trailingSlash: false,
+  // This prevents Next.js from performing client-side redirects for trailing slashes,
+  // which can interfere with Vercel's rewrites and cause canonicalization issues.
+  skipTrailingSlashRedirect: true,
   images: {
     unoptimized: true,
     remotePatterns: [
