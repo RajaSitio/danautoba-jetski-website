@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import Image from 'next/image';
-import { Menu as MenuIcon, Lightbulb, HelpCircle, Package, ChevronDown, Newspaper } from 'lucide-react';
+import { Menu as MenuIcon, HelpCircle, Package, ChevronDown, Newspaper, Waves } from 'lucide-react';
 import { LanguageToggle } from '@/components/common/language-toggle';
 import { useTranslation } from '@/hooks/use-language';
 import { cn } from '@/lib/utils';
@@ -27,7 +27,7 @@ import { packageData } from "@/data/packages";
 type NavItemConfig = {
   href: string;
   labelKey: string;
-  id: 'beranda' | 'paket' | 'faq' | 'blog';
+  id: 'beranda' | 'paket' | 'aktivitas-lain' | 'faq' | 'blog';
   icon?: React.ElementType;
   isPopover?: boolean;
 };
@@ -35,6 +35,7 @@ type NavItemConfig = {
 const navItems: NavItemConfig[] = [
   { href: '/', labelKey: 'menuHome', id: 'beranda' },
   { href: '/#packages', labelKey: 'menuPackages', id: 'paket', icon: Package, isPopover: true },
+  { href: '/aktivitas-lain', labelKey: 'menuOtherActivities', id: 'aktivitas-lain', icon: Waves },
   { href: '/faq', labelKey: 'menuFAQ', id: 'faq', icon: HelpCircle },
   { href: '/blog', labelKey: 'menuBlog', id: 'blog', icon: Newspaper },
 ];
@@ -111,10 +112,12 @@ export function Header() {
                 <Popover key={item.id} open={isPackagePopoverOpen} onOpenChange={setIsPackagePopoverOpen}>
                   <div onMouseEnter={handlePopoverEnter} onMouseLeave={handlePopoverLeave}>
                     <PopoverTrigger asChild>
-                      <Button variant={isPaketActive ? "secondary" : "ghost"} className="px-3 py-2 flex items-center gap-2">
-                        {item.icon && React.createElement(item.icon)}
-                        {t(item.labelKey)}
-                        <ChevronDown className="ml-1 h-4 w-4" />
+                       <Button asChild variant={isPaketActive ? "secondary" : "ghost"} className="px-3 py-2">
+                        <Link href={item.href} className="flex items-center gap-1">
+                          {item.icon && React.createElement(item.icon, {className: "h-5 w-5"})}
+                          {t(item.labelKey)}
+                          <ChevronDown className="ml-1 h-4 w-4" />
+                        </Link>
                       </Button>
                     </PopoverTrigger>
                     <PopoverContent 
@@ -124,6 +127,7 @@ export function Header() {
                       onMouseLeave={handlePopoverLeave}
                     >
                       <div className="grid gap-2">
+                        <p className="font-semibold text-primary px-2 pb-1 text-sm border-b border-border mb-1">{t('menuPackages')}</p>
                         {packageData.map((pkg) => (
                           <Link
                             key={pkg.id}
@@ -144,11 +148,11 @@ export function Header() {
               );
             }
             
-            const isActive = pathname === item.href || (item.id === 'blog' && pathname.startsWith('/blog'));
+            const isActive = pathname === item.href || (item.id === 'blog' && pathname.startsWith('/blog')) || (item.id === 'aktivitas-lain' && pathname.startsWith('/aktivitas-lain'));
             return (
                <Button asChild variant={isActive ? "secondary" : "ghost"} key={item.id}>
                 <Link href={item.href} className="px-3 py-2 flex items-center gap-2">
-                  {item.icon && React.createElement(item.icon)}
+                  {item.icon && React.createElement(item.icon, {className: "h-5 w-5"})}
                   {t(item.labelKey)}
                 </Link>
               </Button>
@@ -209,7 +213,7 @@ export function Header() {
                   );
                 }
 
-                const isActive = pathname === item.href || (item.id === 'blog' && pathname.startsWith('/blog'));
+                const isActive = pathname === item.href || (item.id === 'blog' && pathname.startsWith('/blog')) || (item.id === 'aktivitas-lain' && pathname.startsWith('/aktivitas-lain'));
                 return (
                   <Link
                     key={`mobile-${item.id}`}

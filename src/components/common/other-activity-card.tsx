@@ -1,12 +1,12 @@
+
 "use client";
 
 import Image from 'next/image';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from '@/hooks/use-language';
 import type { OtherActivityInfo } from '@/data/other-activities';
 import React from 'react';
-import { Waves } from 'lucide-react';
 
 interface OtherActivityCardProps {
   activityInfo: OtherActivityInfo;
@@ -15,7 +15,6 @@ interface OtherActivityCardProps {
 export function OtherActivityCard({ activityInfo }: OtherActivityCardProps) {
   const { t } = useTranslation();
   const activityTitle = t(activityInfo.titleKey);
-  const activityDescription = t(activityInfo.descriptionKey);
 
   const handleContactUs = () => {
     const whatsAppNumber = "62895611016833"; // Main contact number
@@ -32,33 +31,28 @@ export function OtherActivityCard({ activityInfo }: OtherActivityCardProps) {
           alt={t(activityInfo.imageAltKey)}
           fill
           className="object-cover transition-transform duration-300 group-hover:scale-105"
-          sizes="(max-width: 768px) 90vw, 30vw"
+          sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 23vw"
           data-ai-hint={activityInfo.dataAiHint}
         />
       </div>
       <CardHeader className="p-4">
-        <CardTitle className="text-xl font-semibold text-primary line-clamp-1">
+        <CardTitle className="text-base sm:text-lg font-semibold text-primary line-clamp-2 leading-tight">
            {activityTitle}
         </CardTitle>
       </CardHeader>
       <CardContent className="p-4 pt-0 flex-grow">
-        <div 
-            className="text-sm text-foreground/80 mb-2 prose prose-sm dark:prose-invert max-w-none prose-p:my-2"
-            dangerouslySetInnerHTML={{ __html: activityDescription }}
-        />
-        <div className="flex items-center text-xs text-muted-foreground mb-4">
-            <Waves className="h-4 w-4 mr-2 text-primary/80" />
-            <span>{t('include_hotel_beach_pickup_short')}</span>
-        </div>
-        <div className="text-lg">
+        <div className="text-lg mb-2">
           <span className="font-bold text-primary">{t(activityInfo.priceKey)}</span>
-          <span className="text-muted-foreground text-base">{t(activityInfo.durationKey)}</span>
+          <span className="text-muted-foreground text-sm">{t(activityInfo.durationKey)}</span>
         </div>
-         <p className="text-xs text-muted-foreground mt-1">{t(activityInfo.priceInfoKey)}</p>
+        <CardDescription className="text-xs sm:text-sm text-muted-foreground line-clamp-3">
+            {t(activityInfo.descriptionKey)}
+        </CardDescription>
+        <p className="text-xs text-muted-foreground mt-2 italic">{t(activityInfo.priceInfoKey)}</p>
       </CardContent>
-      <CardFooter className="p-4 pt-2">
+      <CardFooter className="p-4 pt-2 mt-auto">
         <Button className="w-full btn-gold" onClick={handleContactUs}>
-          {t('packageBookNow')}
+          {t('contact_for_info')}
         </Button>
       </CardFooter>
     </Card>

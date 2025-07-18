@@ -12,6 +12,14 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: title,
     description: description,
+    keywords: [
+        "sewa banana boat danau toba",
+        "sewa skuter air danau toba",
+        "sewa speedboat danau toba",
+        "watersport danau toba",
+        "aktivitas air samosir",
+        "harga banana boat danau toba"
+    ],
     alternates: {
       canonical: `${siteUrl}/aktivitas-lain`,
     },
@@ -25,6 +33,5 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function OtherActivitiesPage() {
-  // We pass the static data to the client component as a prop.
   return <OtherActivitiesClientContent activities={otherActivityData} />;
 }

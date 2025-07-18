@@ -235,11 +235,11 @@ export const translations = {
     other_activities_section_subtitle: "Jelajahi berbagai pilihan olahraga air seru lainnya bersama kami!",
     other_activities_promo_image_alt: "Gambar promosi untuk aktivitas air lain seperti banana boat dan speedboat",
     activity_water_scooter_title: "Skuter Air",
-    activity_water_scooter_desc: "Jelajahi danau dengan santai dan menyenangkan. Mudah dikendarai, cocok untuk semua! <b>Harga khusus <span class='text-primary font-semibold'>Rp 450rb/jam</span> untuk tamu hotel area Tuktuk yang memiliki pantai.</b>",
+    activity_water_scooter_desc: "Jelajahi danau dengan santai dan menyenangkan. Mudah dikendarai, cocok untuk semua!",
     activity_banana_boat_title: "Banana Boat",
-    activity_banana_boat_desc: "Berteriak, tertawa, dan basah bersama! Kesenangan klasik untuk teman dan keluarga. <b>Harga khusus <span class='text-primary font-semibold'>Rp 400rb/3x jatuh</span> untuk tamu hotel area Tuktuk yang memiliki pantai.</b>",
+    activity_banana_boat_desc: "Berteriak, tertawa, dan basah bersama! Kesenangan klasik untuk teman dan keluarga.",
     activity_speedboat_rental_title: "Sewa Speedboat",
-    activity_speedboat_rental_desc_updated: "Nikmati kecepatan dan angin saat kamu berkeliling sekitar Tuktuk dan Tomok. <b>Harga khusus <span class='text-primary font-semibold'>Rp 400rb/15 menit</span> untuk tamu hotel area Tuktuk yang memiliki pantai.</b>",
+    activity_speedboat_rental_desc_updated: "Nikmati kecepatan dan angin saat kamu berkeliling sekitar Tuktuk dan Tomok.",
     activity_speedboat_tour_batu_gantung_title: "Tur Speedboat Batu Gantung",
     activity_speedboat_tour_batu_gantung_desc: "Tur grup yang seru ke Batu Gantung yang ikonik. Maksimal 7 penumpang.",
     activity_water_scooter_price: "Rp 500.000",
@@ -260,7 +260,10 @@ export const translations = {
     other_activities_page_subtitle: "Lengkapi petualanganmu dengan berbagai pilihan olahraga air kami lainnya!",
     other_activities_meta_title: "Sewa Banana Boat, Skuter Air & Speedboat di Danau Toba",
     other_activities_meta_description: "Cari aktivitas air seru di Danau Toba? Danau Toba Jetski juga menyediakan sewa banana boat, skuter air, dan speedboat untuk keseruan bersama keluarga dan teman.",
-    activity_price_info_tio_beach: "(Harga dari Tio Beach)"
+    activity_price_info_tio_beach_scooter: "Khusus tamu hotel Tuktuk (berpantai): Rp 450rb/jam.",
+    activity_price_info_tio_beach_banana: "Khusus tamu hotel Tuktuk (berpantai): Rp 400rb/3x jatuh.",
+    activity_price_info_tio_beach_speedboat: "Khusus tamu hotel Tuktuk (berpantai): Rp 400rb/15 menit.",
+    activity_price_info_tio_beach_tour: "(Harga dari Tio Beach)"
   },
   en: {
     appName: "Lake Toba Jetski",
@@ -497,11 +500,11 @@ export const translations = {
     other_activities_section_subtitle: "Explore our other various exciting watersports with us!",
     other_activities_promo_image_alt: "Promotional image for other water activities like banana boat and speedboat",
     activity_water_scooter_title: "Water Scooter",
-    activity_water_scooter_desc: "Explore the lake in a relaxed and fun way. Easy to ride, perfect for everyone! <b>Special price of <span class='text-primary font-semibold'>IDR 450k/hour</span> for guests at Tuktuk area hotels with a beach.</b>",
+    activity_water_scooter_desc: "Explore the lake in a relaxed and fun way. Easy to ride, perfect for everyone!",
     activity_banana_boat_title: "Banana Boat",
-    activity_banana_boat_desc: "Scream, laugh, and get wet together! Classic fun for friends and family. <b>Special price of <span class='text-primary font-semibold'>IDR 400k/3 flips</span> for guests at Tuktuk area hotels with a beach.</b>",
+    activity_banana_boat_desc: "Scream, laugh, and get wet together! Classic fun for friends and family.",
     activity_speedboat_rental_title: "Speedboat Rental",
-    activity_speedboat_rental_desc_updated: "Enjoy the speed and the wind as you cruise around Tuktuk and Tomok. <b>Special price of <span class='text-primary font-semibold'>IDR 400k/15 mins</span> for guests at Tuktuk area hotels with a beach.</b>",
+    activity_speedboat_rental_desc_updated: "Enjoy the speed and the wind as you cruise around Tuktuk and Tomok.",
     activity_speedboat_tour_batu_gantung_title: "Batu Gantung Speedboat Tour",
     activity_speedboat_tour_batu_gantung_desc: "A fun group tour to the iconic Batu Gantung. Maximum 7 passengers.",
     activity_water_scooter_price: "IDR 500,000",
@@ -522,7 +525,10 @@ export const translations = {
     other_activities_page_subtitle: "Complete your adventure with our other various watersport options!",
     other_activities_meta_title: "Rent Banana Boat, Water Scooter & Speedboat on Lake Toba",
     other_activities_meta_description: "Looking for fun water activities on Lake Toba? Danau Toba Jetski also provides banana boat, water scooter, and speedboat rentals for fun with family and friends.",
-    activity_price_info_tio_beach: "(Price from Tio Beach)"
+    activity_price_info_tio_beach_scooter: "Special for Tuktuk hotel guests (with beach): IDR 450k/hr.",
+    activity_price_info_tio_beach_banana: "Special for Tuktuk hotel guests (with beach): IDR 400k/3 flips.",
+    activity_price_info_tio_beach_speedboat: "Special for Tuktuk hotel guests (with beach): IDR 400k/15 mins.",
+    activity_price_info_tio_beach_tour: "(Price from Tio Beach)"
   }
 };
 
