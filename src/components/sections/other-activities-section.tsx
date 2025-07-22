@@ -1,47 +1,48 @@
+
 "use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
 import { useTranslation } from '@/hooks/use-language';
 import { Waves } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from '../ui/button';
+import Link from 'next/link';
+import Image from 'next/image';
+import { Card, CardContent } from '@/components/ui/card';
 
 export function OtherActivitiesSection() {
   const { t } = useTranslation();
 
   return (
-    <section id="other-activities" className="pt-8 pb-8 bg-card/30">
+    <section id="other-activities" className="pt-8 pb-12 bg-card/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3">
-            <Waves className="inline-block h-7 w-7 md:h-8 md:w-8 mr-2 mb-1" />
-            {t('other_activities_section_title')}
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
-            {t('other_activities_section_subtitle')}
-          </p>
-
-          {/* Single promotional image */}
-          <div className="mb-8">
-            <Link href="/aktivitas-lain" className="block group max-w-lg mx-auto">
-              <div className="overflow-hidden rounded-lg shadow-lg transform transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-primary/30">
-                <Image
-                  src="https://archive.org/download/header_20250629/Header.jpg"
-                  alt={t('other_activities_promo_image_alt')}
-                  width={1280}
-                  height={720}
-                  className="w-full h-auto object-contain"
-                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 50vw, 512px"
-                  data-ai-hint="watersports collage"
-                />
-              </div>
-            </Link>
+        <Card className="max-w-4xl mx-auto overflow-hidden shadow-xl bg-background/50">
+          <div className="md:grid md:grid-cols-2 items-center">
+            {/* Image Column - akan tampil penuh di atas pada mobile, dan di kiri pada desktop */}
+            <div className="relative w-full h-48 md:h-full min-h-[200px] group">
+              <Image 
+                src="https://ia800900.us.archive.org/10/items/tur-batu-gantung/banana-boat.jpg"
+                alt={t('other_activities_promo_image_alt', {defaultValue: "Promotional image for other water activities like banana boat and speedboat"})}
+                fill
+                className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+                data-ai-hint="watersports lake fun"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            
+            {/* Content Column - akan tampil di bawah gambar pada mobile, dan di kanan pada desktop */}
+            <div className="p-6 md:p-8 text-center md:text-left">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3 flex items-center justify-center md:justify-start">
+                <Waves className="inline-block h-7 w-7 md:h-8 md:w-8 mr-2 mb-1" />
+                {t('other_activities_section_title')}
+              </h2>
+              <p className="text-base text-muted-foreground mb-6">
+                {t('other_activities_section_subtitle')}
+              </p>
+              <Button asChild size="lg" variant="secondary" className="text-lg shadow-lg hover:scale-105 transition-transform">
+                  <Link href="/aktivitas-lain">{t('view_all_other_activities_button')}</Link>
+              </Button>
+            </div>
           </div>
-
-          <Button asChild size="lg">
-            <Link href="/aktivitas-lain">{t('view_all_other_activities_button')}</Link>
-          </Button>
-        </div>
+        </Card>
       </div>
     </section>
   );

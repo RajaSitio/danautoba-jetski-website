@@ -13,11 +13,12 @@ export async function generateStaticParams() {
 }
 
 // Generate metadata for each article page
-export async function generateMetadata(
-  props: { params: Promise<{ slug: string }> }
-): Promise<Metadata> {
-  const resolvedParams = await props.params;
-  const slug = resolvedParams.slug;
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const slug = params.slug;
   const article = articleData.find((a) => a.id === slug);
 
   if (!article) {
@@ -61,11 +62,8 @@ export async function generateMetadata(
 }
 
 // The page component itself
-export default async function ArticlePage(
-  props: { params: Promise<{ slug: string }> }
-) {
-  const resolvedParams = await props.params;
-  const slug = resolvedParams.slug;
+export default function ArticlePage({ params }: { params: { slug: string } }) {
+  const slug = params.slug;
   const article = articleData.find((a) => a.id === slug);
 
   if (!article) {

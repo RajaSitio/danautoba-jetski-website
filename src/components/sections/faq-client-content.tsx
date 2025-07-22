@@ -3,15 +3,15 @@
 
 import type { FaqItem } from '@/data/faqs';
 import { useTranslation } from '@/hooks/use-language';
-import { useRouter } from 'next/navigation'; // Added
-import { Button } from '@/components/ui/button'; // Added
+import Link from 'next/link'; // Diubah dari useRouter
+import { Button } from '@/components/ui/button';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { HelpCircle, X } from 'lucide-react'; // Added X
+import { HelpCircle, X } from 'lucide-react';
 
 interface FaqClientContentProps {
   faqItems: FaqItem[];
@@ -19,27 +19,25 @@ interface FaqClientContentProps {
 
 export function FaqClientContent({ faqItems }: FaqClientContentProps) {
   const { t } = useTranslation();
-  const router = useRouter(); // Added
-
-  const handleGoBack = () => { // Added
-    router.back();
-  };
 
   return (
     <section className="py-8 md:py-12 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-        <div className="relative rounded-lg border bg-card text-card-foreground shadow-lg p-6 md:p-8"> {/* New wrapper */}
+        <div className="relative rounded-lg border bg-card text-card-foreground shadow-lg p-6 md:p-8">
+          {/* Tombol kembali sekarang menggunakan Link statis */}
           <Button
+            asChild
             variant="ghost"
             size="icon"
-            onClick={handleGoBack}
             className="absolute top-4 right-4 text-muted-foreground hover:text-foreground z-10"
             aria-label={t('close_button_aria_label', {defaultValue: 'Close'})}
           >
-            <X className="h-5 w-5" />
+            <Link href="/">
+              <X className="h-5 w-5" />
+            </Link>
           </Button>
           
-          <div className="text-center mb-8 md:mb-12 pt-4"> {/* Added pt-4 for spacing from X button */}
+          <div className="text-center mb-8 md:mb-12 pt-4">
             <h1 className="text-3xl md:text-4xl font-bold text-primary mb-3">
               <HelpCircle className="inline-block h-8 w-8 md:h-9 md:w-9 mr-2 mb-1" />
               {t('faq_page_title')}

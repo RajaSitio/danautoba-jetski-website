@@ -1,43 +1,44 @@
 
-import type { MetadataRoute } from 'next'
-import { packageData } from '@/data/packages'
-import { articleData } from '@/data/articles'
+import { MetadataRoute } from 'next';
+import { packageData } from '@/data/packages';
+import { articleData } from '@/data/articles';
+
+const siteUrl = 'https://danautobajetski.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = 'https://danautobajetski.com';
-
-  // Static pages
+  
+  // Static routes
   const staticRoutes = [
     '/',
-    '/blog',
-    '/faq',
     '/aktivitas-lain',
+    '/faq',
+    '/blog',
   ].map((route) => ({
     url: `${siteUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as 'weekly',
-    priority: route === '/' ? 1 : 0.8,
+    lastModified: new Date().toISOString(),
+    changeFrequency: 'weekly' as const,
+    priority: route === '/' ? 1.0 : 0.8,
   }));
 
-  // Dynamic Package Pages
+  // Dynamic routes for packages
   const packageRoutes = packageData.map((pkg) => ({
     url: `${siteUrl}/paket/${pkg.id}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as 'monthly',
+    lastModified: new Date().toISOString(),
+    changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));
 
-  // Dynamic Article Pages
+  // Dynamic routes for articles
   const articleRoutes = articleData.map((article) => ({
     url: `${siteUrl}/blog/${article.id}`,
-    lastModified: new Date(article.publishedOn),
-    changeFrequency: 'yearly' as 'yearly',
+    lastModified: new Date(article.publishedOn).toISOString(),
+    changeFrequency: 'yearly' as const,
     priority: 0.6,
   }));
 
   return [
-      ...staticRoutes, 
-      ...packageRoutes, 
-      ...articleRoutes
-    ];
+    ...staticRoutes,
+    ...packageRoutes,
+    ...articleRoutes,
+  ];
 }
